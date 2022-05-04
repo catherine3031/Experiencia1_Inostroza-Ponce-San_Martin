@@ -29,6 +29,9 @@
             if($("#apellido").val().trim().length==0){
               mensaje = "El apellido esta en blanco";
             }
+            if($("#correo").val().trim().length==0){
+              mensaje = "El campo de correo esta en blanco";
+            }
             if($("#telefono").val().trim().length==0){
               mensaje = "El campo de telefono esta en blanco";
             }
@@ -119,12 +122,17 @@
               <br>
               <div class="form-group"> 
                     <label for="rutPasaporte">Rut o Pasaporte:</label>
-                    <input type="Text" class="form-control" id="rut" placeholder="Ingrese su rut o pasaporte">
+                    <input type="Text" class="form-control" id="rut" placeholder="Ingrese su rut o pasaporte" minlength="9" required placeholder="12345678-9">
                   </div> 
         
                   <div class="form-group"> 
                     <label for="telefono">Teléfono:</label>
-                    <input type="tel" class="form-control" id="telefono" placeholder="Ingresa tu número de teléfono">
+                    <input type="tel" class="form-control" id="telefono" placeholder="Ingresa tu número de teléfono" minlength="9" required>
+                  </div> 
+
+                  <div class="form-group"> 
+                    <label for="correo">Correo:</label>
+                    <input type="email" class="form-control" id="correo" placeholder="Ingresa tu correo" required placeholder="nombre@dominio.cl">
                   </div> 
         
                   <div class="form-group">          
