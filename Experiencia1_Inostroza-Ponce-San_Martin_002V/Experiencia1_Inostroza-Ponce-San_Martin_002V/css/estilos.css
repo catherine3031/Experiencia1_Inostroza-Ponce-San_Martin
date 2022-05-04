@@ -232,3 +232,11 @@ h1{
     padding: 15px 10px;
     text-align: center;
 }
+
+#enviar{
+    background-color: rgb(125, 230, 130);
+}
+
+#limpiar{
+    background-color: rgb(247, 8, 8);
+}
