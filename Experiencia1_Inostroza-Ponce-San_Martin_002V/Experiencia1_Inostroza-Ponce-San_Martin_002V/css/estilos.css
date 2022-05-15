@@ -319,3 +319,9 @@ h1{
 .fondo-aviso-cookies.visible{
     display: block;
 }
+
+.section_clock{
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
