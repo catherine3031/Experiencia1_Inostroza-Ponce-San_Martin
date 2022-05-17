@@ -324,4 +324,15 @@ h1{
     display: flex;
     justify-content: right;
     align-items: right;
+    
+}
+
+
+.row{ 
+ font-size: 30px;
+ border: 1px solid black;
+ margin-right: 990px;
+ border-radius: 30px;
+
+
 }
