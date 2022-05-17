@@ -1,15 +1,25 @@
-const clock = document.getElementById('time_clock');
+const clock = document.getElementById('reloj');
 
-const getTimeClock = () => {
-    const objectDate = new Date();
+const reloj = () => {
+    const tiempo = new Date();
 
-    const elements = {
-        hora: objectDate.getHours(),
-        minutos: objectDate.getMinutes(),
-        segundos: objectDate.getSeconds()
+    const elementos = {
+        hora: tiempo.getHours(),
+        minutos: tiempo.getMinutes(),
+        segundos: tiempo.getSeconds()
     }
-    clock.innerHTML = `${elements.hora}:${elements.minutos}:${elements.segundos}`;
+    if (elementos.hora < 10) {
+        elementos.hora = '0' + elementos.hora;
+    }
+    if (elementos.minutos < 10){
+        elementos.minutos = '0' + elementos.minutos;
+    }
+    if (elementos.segundos < 10){
+        elementos.segundos = '0' + elementos.segundos;
+    }
+
+    clock.innerHTML = `${elementos.hora}:${elementos.minutos}:${elementos.segundos}`;
 
 }
 
-setInterval(getTimeClock, 1000);
+setInterval(reloj, 1000);

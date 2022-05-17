@@ -320,10 +320,10 @@ h1{
     display: block;
 }
 
-.section_clock{
+.reloj{
     display: flex;
-    justify-content: right;
-    align-items: right;
+    justify-content: left;
+    align-items: left;
     font-size: 30px;
     margin-right: 990px;
     border-radius: 30px;
