@@ -17,46 +17,31 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
 
-<script>
-  $(function()
-  {
-    $("#formulario").validate({
-      rules: {
-              email: {
-                  required: true,
-                  email: true,
-              },
-              nombre: "required",
-              password: "required",
-              password2: {
-                  required: true,
-                  equalTo: "#password"
-              }
-
-      },
-    messages: {
-
-    nombre: {    
-            required: "Por favor ingrese su nombre de usuario",
-            minlength: "Su nombre de usuario debe tener al menos 8 caracteres"
-    },
-    email: {
-            required: 'Ingresa tu correo electronico',
-            email: 'Formato no valido'
-    },
-    password: {
-        required: 'Ingresa una contraseña',
-        minlength: 'Caracteres insuficientes'
-    },
-    password2:{
-        required: 'Reingresa la contraseña',
-        equalTo:  'Las contraseñas ingresadas no coinciden',
-        minlength: 'Caracteres insuficientes'
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#error").hide();
+    
+        $("#formulario").submit(function(){
+          var mensaje ="";
+          if($("#password").val().trim().length==0){
+            mensaje = "El campo de contraseña esta vacio";
+          }
+          if($("#email").val().trim().length==0){
+            mensaje = "El correo esta en blanco";
+          }
+          if($("#nombre").val().trim().length==0){
+            mensaje = "El nombre de usuario no puede estar en blanco";
+          }
+    
+    if(mensaje !=""){
+        $("#error").html(mensaje);
+        $("#error").show();
+        event.preventDefault();
     }
-  }
-    });
-  });
-</script>
+    
+        });
+      })
+    </script>
 </head>
 <body>
     
@@ -107,27 +92,22 @@
                 <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese nombre de usuario" required>
               </div>
 
-                <div class="form-group"> 
+              <div class="form-group"> 
                   <label for="correo">Correo:</label>
                   <input type="email" name="email" class="form-control" id="email" placeholder="Ingresa tu correo" required placeholder="nombre@dominio.cl">
-                </div> 
+              </div> 
 
-        	<div class="form-group"> 
+        	    <div class="form-group"> 
                   <label for="password">Contraseña</label>
                  <input type="password" id="password" name="password" class="form-control" minlength="7">
-                </div>
-
-		<div class="form-group"> 
-                  <label for="password">Reingresar contraseña</label>
-                 <input type="password" name="password2" class="form-control" minlength="7">
-                </div>
+              </div>
 		
               <button type="submit" class="btn btn-primary" id="enviar" value="Enviar">Enviar</button>   
 		
-		<button type="reset" class="btn btn-secondary" id="limpiar">Limpiar</button> 
-                  <div id="error" class="alert alert-danger" role="alert"></div>
+		          <button type="reset" class="btn btn-secondary" id="limpiar">Limpiar</button> 
+              <div id="error" class="alert alert-danger" role="alert"></div>
                   
-        </form>
+            </form>
         </div> 
         <!--fin formulario-->
 
