@@ -17,45 +17,49 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-          $("#error").hide();
-      
-          $("#formulario").submit(function(){
-            var mensaje ="";
-      if($("#nombre").val().trim().length==0){
-              mensaje = "El nombre no puede estar en blanco";
-            }
-            if($("#apellido").val().trim().length==0){
-              mensaje = "El apellido esta en blanco";
-            }
-            if($("#correo").val().trim().length==0){
-              mensaje = "El campo de correo esta en blanco";
-            }
-            if($("#telefono").val().trim().length==0){
-              mensaje = "El campo de telefono esta en blanco";
-            }
-            if($("#rut").val().trim().length==0){
-              mensaje = "El campo de rut o pasaporte esta vacio";
-            }
-            if($("#comentarios").val().trim().length==0){
-              mensaje = "debe dejar algun en comentario";
-            }
-      if(!document.querySelector('input[name="grupo2"]:checked')){
-        mensaje= "Seleciona rut o pasaporte";
-        hasError = true;
-      }
-      
-      if(mensaje !=""){
-          $("#error").html(mensaje);
-          $("#error").show();
-          event.preventDefault();
-      }
-      
-          });
-        })
-      </script>
+<script>
+  $(function()
+  {
+    $("#formulario").validate({
+      rules: {
+              email: {
+                  required: true,
+                  email: true,
+              },
+              password: {
+                  required: true,
+                  minlength: 5,
+              },
+              password2: {
+                  required: true,
+                  equalTo: "#password"
+              }
 
+      },
+    messages: {
+
+    nombre: {    
+        required: "Por favor ingrese su nombre",
+        minlength: "Su nombre debe tener al menos 8 caracteres",
+    },
+
+    email: {
+            required: 'Ingresa tu correo electronico',
+            email: 'Formato no valido'
+    },
+    password: {
+        required: 'Ingresa una contraseña',
+        minlength: 'Caracteres insuficientes'
+    },
+    password2:{
+        required: 'Reingresa la contraseña',
+        equalTo:  'Las contraseñas ingresadas no coinciden',
+        minlength: 'Caracteres insuficientes'
+    }
+  }
+    });
+  });
+</script>
 </head>
 <body>
     
@@ -96,90 +100,39 @@
             </div>
         </nav>
         <!--fin navbar-->
-        
+        <!--formulario-->
         <div class="container">
             <form method="post" action="procesar.php" id="formulario">
               <div class="form-group"> 
                   <br>
                   <br>
-                <label for="nombre">Nombres:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese sus nombres">
-              </div> 
-        
-                <div class="form-group"> 
-                  <label for="apellido">Apellidos:</label>
-                  <input type="text" class="form-control" id="apellido" placeholder="Ingrese sus apellidos">
-                </div>
+                <label for="nombre">Nombre de usuario:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese sus nombres" required pattern="[A-Za-z0-9]+">
+              </div>
 
+                <div class="form-group"> 
+                  <label for="correo">Correo:</label>
+                  <input type="email" name="email" class="form-control" id="email" placeholder="Ingresa tu correo" required placeholder="nombre@dominio.cl">
+                </div> 
 
         	<div class="form-group"> 
-                  <label for="apellido">Contraseña</label>
-                 <input type="password" class="form-control">
+                  <label for="password">Contraseña</label>
+                 <input type="password" id="password" name="password" class="form-control" minlength="7">
                 </div>
 
 		<div class="form-group"> 
-                  <label for="apellido">Revalidar contraseña</label>
-                 <input type="password" class="form-control">
+                  <label for="apellido">Reingresar contraseña</label>
+                 <input type="password" id="password2" name="password2" class="form-control" minlength="7">
                 </div>
 		
-                  <div class="form-group"> 
-                    <label for="correo">Correo:</label>
-                    <input type="email" class="form-control" id="correo" placeholder="Ingresa tu correo" required placeholder="nombre@dominio.cl">
-                  </div> 
-        
-                  <div class="form-group">          
-                    <label for="control1">Seleccione Ciudad</label> 
-                    <select class="form-control" id="control1" name="control1"> 
-                        <option>Santiago</option> 
-                        <option>Temuco</option>
-                        <option>Valparaiso</option> 
-                        <option>La Serena</option> 
-                        <option>Licanray</option> 
-                    </select> 
-                  </div>
-        	
-		<div class="form-group">          
-                    <label for="control1">Seleccione Comuna de Residencia</label> 
-                    <select class="form-control" id="control1" name="control1"> 
-                        <option>Maipu</option> 
-                        <option>Pudahuel</option>
-                        <option>Puente Alto</option> 
-                        <option>Quilicura</option> 
-                        <option>Renca</option>
-			<option>San Bernardo</option>
-			<option>Cerrillos</option>
-			<option>Providencia</option>
-			<option>Quinta Normal</option>
-			<option>Peñalolen</option>
-			<option>Pedro Aguirre Cerda</option>
-			<option>Ñuñoa</option>
-			<option>Macul</option>
-			<option>Lo Prado</option>
-			<option>Lo Espejo</option>
-			<option>Lo Barnechea</option>
-			<option>Las Condes</option>
-			<option>La Reina</option>
-			<option>La Pintana</option>
-			<option>La Granja</option>
-			<option>La Florida</option>
-			<option>La Cisterna</option>
-			<option>Independencia</option>
-			<option>Huechuraba</option>
-			<option>Estacion Central</option>
-			<option>El Bosque</option>
-			<option>Conchali</option>
-			<option>Cerro Navia</option>
-			
-                    </select> 
-                  </div>
-		<br>
-                  <button type="submit" class="btn btn-primary" id="enviar" value="Enviar">Enviar</button>   
+              <button type="submit" class="btn btn-primary" id="enviar" value="Enviar">Enviar</button>   
 		
 		<button type="reset" class="btn btn-secondary" id="limpiar">Limpiar</button> 
                   <div id="error" class="alert alert-danger" role="alert"></div>
                   
         </form>
         </div> 
+        <!--fin formulario-->
 
 
         <footer class="pie-pagina">

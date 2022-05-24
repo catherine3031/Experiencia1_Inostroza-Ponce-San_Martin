@@ -23,14 +23,8 @@
       
           $("#formulario").submit(function(){
             var mensaje ="";
-      if($("#nombre").val().trim().length==0){
-              mensaje = "El nombre no puede estar en blanco";
-            }
-            if($("#apellido").val().trim().length==0){
-              mensaje = "El apellido esta en blanco";
-            }
-            if($("#correo").val().trim().length==0){
-              mensaje = "El campo de correo esta en blanco";
+      if($("#comentarios").val().trim().length==0){
+              mensaje = "debe dejar algun en comentario";
             }
             if($("#telefono").val().trim().length==0){
               mensaje = "El campo de telefono esta en blanco";
@@ -38,8 +32,11 @@
             if($("#rut").val().trim().length==0){
               mensaje = "El campo de rut o pasaporte esta vacio";
             }
-            if($("#comentarios").val().trim().length==0){
-              mensaje = "debe dejar algun en comentario";
+            if($("#apellido").val().trim().length==0){
+              mensaje = "El apellido esta en blanco";
+            }
+            if($("#nombre").val().trim().length==0){
+              mensaje = "El nombre no puede estar en blanco";
             }
       if(!document.querySelector('input[name="grupo2"]:checked')){
         mensaje= "Seleciona rut o pasaporte";
@@ -62,10 +59,6 @@
     <body bgcolor="#D6EAF8">
         <header>
             <h1>PET SHOP SOFIA</h1>
-            <div class="container">
-              <div class="row">
-                <div class="reloj" id="reloj">00:00:00</div></div>
-            </div>
         </header>
         <!--navbar-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -88,9 +81,6 @@
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="contacto.html">Contacto</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="registro.html">Registrarse</a>
-                  </li>
                 </ul>
               </div>
             </div>
@@ -98,69 +88,71 @@
         <!--fin navbar-->
         
         <div class="container">
-
-            <form method="post" action="procesar.php" id="formulario">
-                <div class="form-group"> 
-                    <br>
-                    <br>
-                    <label for="nombre">Nombres:</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese sus nombres">
-                </div> 
-        
-                <div class="form-group"> 
-                    <label for="apellido">Apellidos:</label>
-                    <input type="text" class="form-control" id="apellido" placeholder="Ingrese sus apellidos">
+          <form method="post" action="procesar.php" id="formulario">
+            <div class="form-group"> 
+                <br>
+                <br>
+              <label for="nombre">Nombres:</label>
+              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese sus nombres">
+            </div> 
+      
+              <div class="form-group"> 
+                <label for="apellido">Apellidos:</label>
+                <input type="text" class="form-control" id="apellido" placeholder="Ingrese sus apellidos">
+              </div>
+      
+      
+              <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" value="Rut" id="radio4" name="grupo2">
+                  <label class="form-check-label" for="radio4">
+                    Rut
+                  </label>
                 </div>
-        
-                <div class="form-group"> 
-                    <label for="rutPasaporte">Rut o Pasaporte:</label>
-                    <input type="Text" class="form-control" id="rut" placeholder="Ingrese su rut o pasaporte" minlength="9" required placeholder="12345678-9">
+          
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" value="Pasaporte" id="radio4" name="grupo2">
+                  <label class="form-check-label" for="radio4">
+                    Pasaporte
+                  </label>
+            </div>
+            <br>
+            <br>
+            <div class="form-group"> 
+                  <label for="rutPasaporte">Rut o Pasaporte:</label>
+                  <input type="Text" class="form-control" id="rut" placeholder="Ingrese su rut o pasaporte" minlength="9" required placeholder="12345678-9">
                 </div> 
-        
+      
                 <div class="form-group"> 
-                    <label for="telefono">Teléfono:</label>
-                    <input type="tel" class="form-control" id="telefono" placeholder="Ingresa tu número de teléfono" minlength="9" required>
+                  <label for="telefono">Teléfono:</label>
+                  <input type="tel" class="form-control" id="telefono" placeholder="Ingresa tu número de teléfono" minlength="9" required>
                 </div> 
 
                 <div class="form-group"> 
-                    <label for="correo">Correo:</label>
-                    <input type="email" class="form-control" id="correo" placeholder="Ingresa tu correo" required placeholder="nombre@dominio.cl">
+                  <label for="correo">Correo:</label>
+                  <input type="email" class="form-control" id="correo" placeholder="Ingresa tu correo" required placeholder="nombre@dominio.cl">
                 </div> 
-        
+      
                 <div class="form-group">          
-                <label for="control1">Seleccione Ciudad de Residencia</label> 
-                <select class="form-control" id="control1" name="control1"> 
-                    <option>Santiago</option> 
-                    <option>Temuco</option>
-                    <option>Valparaiso</option> 
-                    <option>La Serena</option> 
-                    <option>Licanray</option> 
-                </select> 
+                  <label for="control1">Seleccione Ciudad de Residencia</label> 
+                  <select class="form-control" id="control1" name="control1"> 
+                      <option>Santiago</option> 
+                      <option>Temuco</option>
+                      <option>Valparaiso</option> 
+                      <option>La Serena</option> 
+                      <option>Licanray</option> 
+                  </select> 
                 </div>
-        	
-		
-		        <div class="form-group">          
-                <label for="control1">Seleccione Comuna de Residencia</label> 
-                <select class="form-control" id="control1" name="control1"> 
-                    <option>Maipu</option> 
-                    <option>Pudahuel</option>
-                    <option>Puente Alto</option> 
-                    <option>Quilicura</option> 
-                    <option>Renca</option>
-			        <option>San Bernardo</option> 
-                </select> 
-                </div>
-
+      
                 <div class="form-group"> 
-                <label for="comentarios">Deje aquí sus comentarios</label>
-                <textarea class="form-control" rows="5" id="comentarios" name="comentarios" placeholder="Dejanos un comentario"></textarea>
+                  <label for="comentarios">Deje aquí sus comentarios</label>
+                  <textarea class="form-control" rows="5" id="comentarios" name="comentarios" placeholder="Dejanos un comentario"></textarea>
                 </div> 
-        
+      
                 <button type="submit" class="btn btn-primary" id="enviar" value="Enviar">Enviar</button>   <button type="reset" class="btn btn-secondary" id="limpiar">Limpiar</button> 
                 <div id="error" class="alert alert-danger" role="alert"></div>
-                  
-            </form>
-        </div> 
+                
+      </form>
+      </div> 
 
 
         <footer class="pie-pagina">
@@ -192,7 +184,6 @@
                 <small>Inostroza-Ponce-san Martin@copyright Derechos Reservados.</small>
             </div>
         </footer>
-        <script src="js/reloj.js"></script>
 
 
 
