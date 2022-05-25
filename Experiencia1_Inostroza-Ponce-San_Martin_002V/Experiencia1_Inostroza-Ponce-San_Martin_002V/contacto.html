@@ -51,6 +51,13 @@
       
           });
         })
+        function CambiarMayusculas()
+        {
+            var a = document.getElementById('nombre');
+            var ap = document.getElementById('apellido');
+            a.value = a.value.toUpperCase();
+            ap.value = ap.value.toUpperCase();
+        }
       </script>
 
 </head>
@@ -100,7 +107,7 @@
                 <br>
                 <br>
               <label for="nombre">Nombres:</label>
-              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese sus nombres">
+              <input type="text" class="form-control" id="nombre" name="nombre" onchange="CambiarMayusculas()" placeholder="Ingrese sus nombres">
             </div> 
       
               <div class="form-group"> 
@@ -196,7 +203,7 @@
 
 
 
-
+ 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
