@@ -324,8 +324,9 @@ h1{
     display: flex;
     justify-content: left;
     align-items: left;
-    font-size: 30px;
+    font-size: 25px;
     margin-right: 990px;   
+    color: #a1e880;
 }
 
 .botonperro{
